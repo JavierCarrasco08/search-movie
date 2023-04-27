@@ -10,3 +10,11 @@ html {
   box-sizing: border-box;
   padding: 0;
 }
+
+:root {
+  --primary-color-background-root: #1b263b;
+  --primary-color-text: #e0e1dd;
+  --primary-color-background-button: #778da9;
+  --secondary-color: #415a77;
+  --secondary-background-info-card: #0d1b2a;
+}
