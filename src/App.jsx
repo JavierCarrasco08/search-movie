@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [value, setValue] = useState("");
   return (
     <>
       <form className="search-form">
@@ -10,8 +12,8 @@ function App() {
             type="text"
             id="search"
             placeholder="Avengers, Mario bros, Pokemon..."
-            value={""}
-            onChange={() => console.log("HOLA")}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
             autoComplete="off"
           />
         </label>
