@@ -6,17 +6,8 @@ export async function movies(text) {
         `http://www.omdbapi.com/?apikey=${API_KEY}&s=${text}`
       ),
       json = await res.json();
-    if (!text) throw "The movie has not been found";
-    if (json.Response === "False")
-      throw [
-        {
-          Title: "Film not found",
-          imdbID: -2,
-          Year: new Date().getFullYear(),
-          Type: "Error",
-          Poster: "",
-        },
-      ];
+    if (!text) throw "Cannot do a search with empty entry";
+    if (json.Response === "False") throw "No movies found for this search";
     json2 = json.Search;
   } catch (error) {
     json2 = error;
