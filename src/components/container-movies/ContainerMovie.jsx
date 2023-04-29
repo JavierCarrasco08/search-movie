@@ -1,7 +1,9 @@
+import { useState } from "react";
 import CardMovie from "../card-movie/CardMovie";
 import "./containerMovies.css";
 
 export default function ContainerMovie({ movies }) {
+  const [translate, setTranslate] = useState("");
   return (
     <main className="container">
       {typeof movies === "string" ? (
@@ -14,6 +16,10 @@ export default function ContainerMovie({ movies }) {
             name={movie.Title}
             year={movie.Year}
             poster={movie.Poster}
+            onModal={(title) => {
+              setTranslate(title);
+            }}
+            modal={translate === movie.Title ? true : false}
           />
         ))
       )}
