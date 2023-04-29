@@ -19,6 +19,7 @@ function App() {
             id="search"
             placeholder="Avengers, Mario bros, Pokemon..."
             value={value}
+            name="value"
             onChange={(e) => {
               setValue(e.target.value);
             }}
