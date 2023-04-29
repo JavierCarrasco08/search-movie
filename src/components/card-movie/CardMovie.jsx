@@ -1,12 +1,20 @@
 import arrow__right from "./../../assets/arrow-right.svg";
 import arrow__left from "./../../assets/arrow-left.svg";
+import "./cardMovie.css";
 
-export default function CardMovie({ type, year, name, poster }) {
+export default function CardMovie({
+  type,
+  year,
+  name,
+  poster,
+  modal,
+  onModal,
+}) {
   return (
     <div className="card">
       <div className="card__front">
         <header className="card__header">
-          <button className="card__button">
+          <button className="card__button" onClick={() => onModal(name)}>
             <img
               src={arrow__left}
               alt="Click para activar el informativo"
@@ -14,13 +22,13 @@ export default function CardMovie({ type, year, name, poster }) {
             />
           </button>
         </header>
-        <figure>
-          <img src={poster} alt="" />
+        <figure className="card__figure">
+          <img src={poster} alt="" className="card__img" />
         </figure>
       </div>
-      <div className="card__info">
+      <div className={`card__info ${modal ? "right" : null}`}>
         <header className="card__header">
-          <button className="card__button">
+          <button className="card__button" onClick={() => onModal(name)}>
             <img
               src={arrow__right}
               alt="Click para desactivar el informativo"
