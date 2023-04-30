@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { movies } from "../utils/movies";
 
 export const useSearchMovie = () => {
@@ -6,23 +6,19 @@ export const useSearchMovie = () => {
   const [data, setData] = useState("");
   const [result, setResult] = useState("");
   const [value, setValue] = useState("");
-  const memoResult = useMemo(() => {
-    return movies(data);
-  }, [data]);
   useEffect(() => {
     let ignore = false;
     const getData = async () => {
-      let res = await memoResult;
+      let res = await movies(data);
       setResult(res);
     };
     if (!ignore) {
       getData();
     }
-
     return () => {
       ignore = true;
     };
-  }, [memoResult]);
+  }, [data]);
 
   const getData = (text) => {
     setValue(text);
