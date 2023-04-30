@@ -15,11 +15,12 @@ export default function ContainerMovie({ movies }) {
             type={movie.Type}
             name={movie.Title}
             year={movie.Year}
+            id={movie.imdbID}
             poster={movie.Poster}
             onModal={(title) => {
               setTranslate(title);
             }}
-            modal={translate === movie.Title ? true : false}
+            modal={translate === movie.imdbID ? true : false}
           />
         ))
       )}

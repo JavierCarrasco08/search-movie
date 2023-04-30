@@ -9,12 +9,13 @@ export default function CardMovie({
   poster,
   modal,
   onModal,
+  id,
 }) {
   return (
     <div className="card">
       <div className="card__front">
         <header className="card__header">
-          <button className="card__button" onClick={() => onModal(name)}>
+          <button className="card__button" onClick={() => onModal(id)}>
             <img
               src={arrow__left}
               alt="Click para activar el informativo"
@@ -28,7 +29,7 @@ export default function CardMovie({
       </div>
       <div className={`card__info ${modal ? "right" : null}`}>
         <header className="card__header">
-          <button className="card__button" onClick={() => onModal(name)}>
+          <button className="card__button" onClick={() => onModal("")}>
             <img
               src={arrow__right}
               alt="Click para desactivar el informativo"
